@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>林屿 · 视觉设计作品集</title>
+<meta name="description" content="林屿，独立视觉设计师。品牌识别、编辑设计、数字产品。一份可以慢慢翻的作品集，发给朋友看。">
+<meta property="og:title" content="林屿 · 视觉设计作品集">
+<meta property="og:description" content="品牌识别、编辑设计、数字产品。一份可以慢慢翻的作品集。">
+<meta property="og:type" content="website">
+<style>
+@font-face{font-family:"Cabinet Grotesk";src:url("assets/fonts/cabinet-grotesk-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Cabinet Grotesk";src:url("assets/fonts/cabinet-grotesk-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Cabinet Grotesk";src:url("assets/fonts/cabinet-grotesk-800.woff2") format("woff2");font-weight:800;font-display:swap}
+:root{
+  --bg:#edccbe;        /* 胭脂粉 ground */
+  --surface:#e8c2b2;   /* 略深一档，靠色阶分层，不用线 */
+  --ink:#351a2b;       /* 深茄紫 ink */
+  --muted:#6c4857;     /* 次要文字 */
+  --accent:#351a2b;    /* accent 就是 ink，按钮是反相的实色块 */
+  --accent-ink:#edccbe;
+  --margin:clamp(18px,4.2vw,64px);
+  --step-small:clamp(14px,.85rem+.1vw,15px);
+  --step-body:clamp(16px,1rem+.25vw,19px);
+  --step-lead:clamp(20px,1.1rem+.7vw,26px);
+  --step-head:clamp(44px,1.2rem+5vw,88px);
+  --radius:0px;        /* 一套圆角：直角，全站统一 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Cabinet Grotesk","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.wrap{padding-left:var(--margin);padding-right:var(--margin)}
+.small{font-size:var(--step-small);font-weight:500;letter-spacing:.01em}
+.body{font-size:var(--step-body);line-height:1.6}
+.muted{color:var(--muted)}
+
+/* ---------- 第一屏：名字横跨整行，四角放信息，中间留白 ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:var(--margin);padding-bottom:var(--margin)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.hero-intro{max-width:34ch;font-size:18px;line-height:1.35}
+.hero-links{display:flex;gap:20px;font-size:15px;font-weight:500;white-space:nowrap}
+.hero-links a{border-bottom:1.5px solid transparent;transition:border-color .18s}
+.hero-links a:hover{border-color:var(--ink)}
+.hero-name{
+  font-weight:800;font-size:clamp(84px,19.5vw,340px);line-height:.82;letter-spacing:-.045em;
+  white-space:nowrap;margin:0 calc(var(--margin) * -1);padding:0 var(--margin);
+  text-align:center;
+}
+.hero-name .en{display:block;font-size:.14em;letter-spacing:.42em;text-indent:.42em;font-weight:500;margin-top:.5em;color:var(--muted)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.hero-cta{
+  display:inline-block;background:var(--accent);color:var(--accent-ink);
+  font-weight:500;font-size:var(--step-body);padding:16px 26px;border:1.5px solid var(--ink);
+  transition:transform .18s ease,background .18s ease,color .18s ease;cursor:pointer;
+}
+.hero-cta:hover{background:transparent;color:var(--ink);transform:translateY(-2px)}
+.hero-cta:active{transform:translateY(0)}
+.hero-meta{font-size:16px;text-align:right}
+
+/* ---------- 通用 section 节奏 ---------- */
+section{padding-top:clamp(80px,11vw,160px);padding-bottom:clamp(80px,11vw,160px)}
+.sec-head{font-weight:800;font-size:var(--step-head);line-height:.92;letter-spacing:-.035em;margin-bottom:.5em}
+.sec-label{font-size:var(--step-small);font-weight:500;color:var(--muted);margin-bottom:18px}
+
+/* intro：整屏色块 + 一段大字陈述（statement，不超过三行） */
+.intro{background:var(--ink);color:var(--bg);padding-left:var(--margin);padding-right:var(--margin)}
+.intro .statement{
+  font-weight:500;font-size:clamp(28px,3.4vw,46px);line-height:1.28;letter-spacing:-.01em;
+  max-width:26ch;margin-left:auto;
+}
+.intro .statement b{font-weight:800}
+.intro-foot{margin-top:64px;display:flex;justify-content:space-between;font-size:15px;color:#c9a9b6;flex-wrap:wrap;gap:12px}
+
+/* 作品区：名单如一段文字般排布（不用卡片网格） */
+.work{position:relative}
+.work-list{display:flex;flex-wrap:wrap;column-gap:.28em;row-gap:.1em;font-weight:500;font-size:clamp(30px,4.6vw,68px);line-height:1.12;letter-spacing:-.02em}
+.work-list a{color:var(--muted);transition:color .2s ease}
+.work-list a:hover{color:var(--ink)}
+.work-list a .dot{color:var(--ink);font-weight:800}
+.work-list .sep{color:var(--muted)}
+
+/* 作品成品稿：一张张成套的设计稿，代码绘制，断网也能开 */
+.project{padding-top:clamp(64px,8vw,120px)}
+.project-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.project-title{font-weight:800;font-size:clamp(30px,3.6vw,54px);line-height:1;letter-spacing:-.03em}
+.project-meta{font-size:15px;color:var(--muted)}
+.still{aspect-ratio:4/3;width:100%;overflow:hidden;position:relative;display:block}
+.still.portrait{aspect-ratio:4/5}
+.still .inner{position:absolute;inset:0;display:flex;flex-direction:column}
+.project-note{margin-top:20px;max-width:54ch;font-size:var(--step-body);line-height:1.6;color:var(--muted)}
+
+/* 三个成品稿各自的世界 */
+/* 01 MARÉE 咖啡品牌 */
+.s-maree{background:#efe3d5;color:#351a2b;justify-content:space-between;padding:7%}
+.s-maree .top{display:flex;justify-content:space-between;align-items:flex-start;font-size:clamp(10px,1.1vw,15px);font-weight:500;letter-spacing:.08em}
+.s-maree .mark{font-weight:800;font-size:clamp(48px,9vw,130px);line-height:.85;letter-spacing:-.06em;align-self:center;text-align:center}
+.s-maree .mark small{display:block;font-size:.16em;letter-spacing:.5em;text-indent:.5em;font-weight:500;margin-top:.9em}
+.s-maree .bags{display:flex;gap:4%;align-items:flex-end;justify-content:center;height:34%}
+.s-maree .bag{width:20%;height:100%;background:#351a2b;position:relative}
+.s-maree .bag:nth-child(2){background:#8a4b3c;height:86%}
+.s-maree .bag:nth-child(3){background:#c9a18b;height:92%}
+.s-maree .bag::before{content:"";position:absolute;top:0;left:0;right:0;height:14%;background:rgba(237,204,190,.35)}
+.s-maree .bag span{position:absolute;bottom:8%;left:0;right:0;text-align:center;color:#efe3d5;font-weight:800;font-size:clamp(10px,1.4vw,20px);letter-spacing:.05em}
+.s-maree .bag:nth-child(3) span{color:#351a2b}
+.s-maree .bottom{display:flex;justify-content:space-between;font-size:clamp(9px,1vw,13px);font-weight:500}
+
+/* 02 《拾光》刊物 */
+.s-lumen{background:#351a2b;color:#edccbe;padding:6% 7%;display:flex;gap:6%}
+.s-lumen .col{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.s-lumen .kicker{font-size:clamp(9px,1vw,13px);letter-spacing:.12em}
+.s-lumen .big{font-weight:800;font-size:clamp(46px,7.5vw,110px);line-height:.9;letter-spacing:-.05em}
+.s-lumen .lines{display:flex;flex-direction:column;gap:7px;margin-top:18px}
+.s-lumen .lines i{display:block;height:6px;background:rgba(237,204,190,.35)}
+.s-lumen .lines i:nth-child(2){width:82%}.s-lumen .lines i:nth-child(3){width:64%}
+.s-lumen .cover{flex:1.1;background:#edccbe;color:#351a2b;padding:7%;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.s-lumen .cover .orb{position:absolute;right:-14%;top:18%;width:62%;aspect-ratio:1;border-radius:50%;background:#c9a18b}
+.s-lumen .cover .no{font-size:clamp(9px,1vw,13px);font-weight:500;position:relative}
+.s-lumen .cover h3{font-weight:800;font-size:clamp(30px,4.4vw,68px);line-height:.92;letter-spacing:-.04em;position:relative;z-index:1}
+.s-lumen .cover .en{font-size:clamp(9px,1vw,14px);letter-spacing:.18em;position:relative;z-index:1}
+
+/* 03 节气 App */
+.s-jieqi{background:#dfe4d8;color:#25331f;padding:6% 7%;display:flex;gap:6%;align-items:stretch}
+.s-jieqi .left{flex:1.1;display:flex;flex-direction:column;justify-content:space-between}
+.s-jieqi .left .hd{font-size:clamp(9px,1vw,13px);letter-spacing:.1em}
+.s-jieqi .left h3{font-weight:800;font-size:clamp(40px,6vw,90px);line-height:.92;letter-spacing:-.05em}
+.s-jieqi .left .sub{font-size:clamp(11px,1.3vw,17px);max-width:24ch;line-height:1.5}
+.s-jieqi .phones{flex:1;display:flex;gap:5%;align-items:center;justify-content:center}
+.s-jieqi .phone{width:42%;aspect-ratio:9/16;background:#25331f;border-radius:22px;padding:7% 6%;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 30px rgba(37,51,31,.18)}
+.s-jieqi .phone.alt{background:#f3f1e7;transform:translateY(9%)}
+.s-jieqi .phone .bar{height:5px;width:34%;background:rgba(223,228,216,.5);border-radius:3px}
+.s-jieqi .phone.alt .bar{background:rgba(37,51,31,.35)}
+.s-jieqi .phone .glyph{font-weight:800;font-size:clamp(34px,5vw,72px);line-height:1;text-align:center;color:#dfe4d8}
+.s-jieqi .phone.alt .glyph{color:#25331f}
+.s-jieqi .phone .dots{display:flex;gap:6px;justify-content:center}
+.s-jieqi .phone .dots i{width:7px;height:7px;border-radius:50%;background:rgba(223,228,216,.5)}
+.s-jieqi .phone.alt .dots i{background:rgba(37,51,31,.35)}
+
+/* 氛围图：真实照片，全宽满幅，作两个文字区之间的喘息 */
+.atmos{width:100%;height:clamp(320px,52vw,700px);object-fit:cover;display:block;filter:saturate(.85) sepia(.06)}
+.atmos-cap{font-size:var(--step-small);color:var(--muted);padding-top:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* about：左事实，右宽段 */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px)}
+.about-facts{display:flex;flex-direction:column;gap:26px}
+.about-fact .k{font-size:15px;color:var(--muted);margin-bottom:6px}
+.about-fact .v{font-weight:500;font-size:var(--step-lead);line-height:1.35}
+.about-copy p{font-size:var(--step-lead);line-height:1.6;margin-bottom:1em;max-width:30ch}
+.about-copy p:last-child{margin-bottom:0}
+
+/* contact：邮箱即展示字体，反相收尾像括号一样合上 */
+.contact{background:var(--ink);color:var(--bg);text-align:left}
+.contact .invite{font-size:var(--step-lead);line-height:1.5;max-width:22ch;margin-bottom:.6em}
+.contact .mail{font-weight:800;font-size:clamp(40px,8.5vw,140px);line-height:.92;letter-spacing:-.04em;word-break:break-word;display:inline-block;transition:opacity .2s}
+.contact .mail:hover{opacity:.68}
+.contact .mail-sub{font-size:15px;color:#c9a9b6;margin-top:1.4em}
+.footer{background:var(--ink);color:var(--bg);padding-top:clamp(60px,8vw,110px);padding-bottom:var(--margin)}
+.footer .big-name{font-weight:800;font-size:clamp(72px,19vw,320px);line-height:.8;letter-spacing:-.045em;text-align:center;white-space:nowrap;margin:0 calc(var(--margin) * -1);padding:0 var(--margin)}
+.footer .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:15px;color:#c9a9b6;margin-top:48px}
+
+/* 动效：只给入场和反馈，transform/opacity，尊重 reduced-motion */
+[data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+[data-reveal].shown{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-reveal]{opacity:1;transform:none;transition:none}
+  .hero-cta,.work-list a,.contact .mail{transition:none}
+}
+
+/* 手机：自己的排版，不横向滚动，按钮≥44 */
+@media (max-width:720px){
+  .hero-top{flex-direction:column;gap:18px}
+  .hero-name{font-size:clamp(64px,21vw,150px)}
+  .hero-intro{font-size:16px;max-width:none;line-height:1.45}
+  .hero-links{gap:20px;font-size:15px;flex-wrap:nowrap;justify-content:flex-start}
+  .hero-meta{text-align:left}
+  .intro .statement{margin-left:0;max-width:none;font-size:clamp(24px,6.4vw,32px)}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .s-lumen,.s-jieqi{flex-direction:column}
+  .s-lumen .cover{min-height:230px}
+  .s-jieqi .phones{min-height:280px}
+  .still{aspect-ratio:3/4}
+  .atmos-cap{flex-direction:column;gap:4px}
+  .work-list{font-size:clamp(26px,8vw,44px)}
+  .footer .big-name{font-size:clamp(56px,20vw,130px)}
+}
+</style>
+</head>
+<body>
+
+<!-- 第一屏 -->
+<header class="hero wrap" id="top">
+  <div class="hero-top">
+    <p class="hero-intro">林屿，独立视觉设计师。做品牌识别、编辑设计与数字产品，把复杂的东西排得清楚又好看。</p>
+    <nav class="hero-links" aria-label="主导航">
+      <a href="#work">作品</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </div>
+
+  <h1 class="hero-name">林屿<span class="en">LIN YU · VISUAL DESIGNER</span></h1>
+
+  <div class="hero-bottom">
+    <a class="hero-cta" href="#work">往下翻，看看作品</a>
+    <p class="hero-meta">现居杭州 · 接远程合作<br>2021 — 2026 作品选</p>
+  </div>
+</header>
+
+<!-- 陈述色块 -->
+<section class="intro" aria-label="自述">
+  <p class="statement" data-reveal>我相信 <b>留白</b> 和一句说清楚的话，比十个花哨的动效更有力量。做设计这五年，我一直在做同一件事：把信息排到它该在的位置，然后 <b>停下来</b>。</p>
+  <div class="intro-foot" data-reveal>
+    <span>品牌识别 / 编辑设计 / 数字产品</span>
+    <span>一份慢慢翻的作品集 · 2026</span>
+  </div>
+</section>
+
+<!-- 作品名单 -->
+<section class="work wrap" id="work" aria-label="作品">
+  <p class="sec-label" data-reveal>选作 / SELECTED WORK</p>
+  <h2 class="sec-head" data-reveal>做过的事</h2>
+  <p class="work-list" data-reveal>
+    <a href="#p1">MARÉE 咖啡品牌</a><span class="sep">、</span><a href="#p2">《拾光》独立刊物</a><span class="sep">、</span><a href="#p3">节气 App</a><span class="sep">、</span><a href="#p1">山见民宿识别</a><span class="sep">、</span><a href="#p2">白露茶包装</a><span class="sep">、</span><a href="#p3">城市展视觉</a>
+  </p>
+  <p class="project-meta" style="margin-top:26px" data-reveal>下面挑了三件，放大了给你看。更多项目可以写信问我。</p>
+
+  <!-- 01 -->
+  <article class="project" id="p1">
+    <div class="project-head" data-reveal>
+      <h3 class="project-title">MARÉE 咖啡品牌</h3>
+      <span class="project-meta">品牌识别 · 2025</span>
+    </div>
+    <div class="still" data-reveal role="img" aria-label="MARÉE 咖啡品牌视觉稿：深茄紫与陶土色咖啡袋、极简字标">
+      <div class="inner s-maree">
+        <div class="top"><span>MARÉE COFFEE ROASTERS</span><span>EST. 2025 / HANGZHOU</span></div>
+        <div class="mark">MARÉE<small>SINGLE ORIGIN</small></div>
+        <div class="bags"><div class="bag"><span>01</span></div><div class="bag"><span>02</span></div><div class="bag"><span>03</span></div></div>
+        <div class="bottom"><span>把海浪的节奏，装进一只袋子</span><span>© 2025 林屿</span></div>
+      </div>
+    </div>
+    <p class="project-note" data-reveal>为一家只做单一产地豆的小烘焙坊做的整套识别：字标、包装、名片。三只袋子对应浅、中、深三种烘焙度，颜色从纸袋的暖白一路收到深茄紫。【示例作品，内容为我按行业写的一版示意】</p>
+  </article>
+
+  <!-- 氛围图 -->
+  <figure style="margin-top:clamp(80px,11vw,150px)" data-reveal>
+    <img class="atmos" src="assets/photos/scene-1.jpg" alt="木质书桌上的笔记本、咖啡杯与电脑，傍晚的自然光" loading="lazy" width="1000" height="667">
+    <figcaption class="atmos-cap"><span>工作室一角 / 傍晚</span><span>氛围照片 · Unsplash</span></figcaption>
+  </figure>
+
+  <!-- 02 -->
+  <article class="project" id="p2">
+    <div class="project-head" data-reveal>
+      <h3 class="project-title">《拾光》独立刊物</h3>
+      <span class="project-meta">编辑设计 · 2024</span>
+    </div>
+    <div class="still" data-reveal role="img" aria-label="《拾光》刊物封面与内页：深茄紫底，奶油色封面，橙色圆形">
+      <div class="inner s-lumen">
+        <div class="col">
+          <span class="kicker">AN INDEPENDENT JOURNAL / ISSUE 03</span>
+          <div>
+            <div class="big">拾光</div>
+            <div class="lines"><i></i><i></i><i></i></div>
+          </div>
+          <span class="kicker">关于慢下来，把日子过厚一点</span>
+        </div>
+        <div class="cover">
+          <span class="no">ISSUE 03 · 秋</span>
+          <div class="orb"></div>
+          <h3>拾<br>光</h3>
+          <span class="en">SHIGUANG JOURNAL</span>
+        </div>
+      </div>
+    </div>
+    <p class="project-note" data-reveal>一本关于手艺人与日常的小刊物，我做版式与封面系统。正文用窄栏、大行距，封面每期只换一个圆形的位置和颜色。【示例作品，内容为我按行业写的一版示意】</p>
+  </article>
+
+  <!-- 03 -->
+  <article class="project portrait-wrap" id="p3">
+    <div class="project-head" data-reveal>
+      <h3 class="project-title">节气 App</h3>
+      <span class="project-meta">数字产品 · 2026</span>
+    </div>
+    <div class="still portrait" data-reveal role="img" aria-label="节气 App 界面稿：深绿与米白两套主题，大字节气名">
+      <div class="inner s-jieqi">
+        <div class="left">
+          <span class="hd">JIEQI / 二十四节气</span>
+          <h3>今日<br>白露</h3>
+          <p class="sub">把一年切成二十四段，每段给你一句该做的事。没有推送，没有红点。</p>
+        </div>
+        <div class="phones">
+          <div class="phone"><span class="bar"></span><span class="glyph">露</span><div class="dots"><i></i><i></i><i></i></div></div>
+          <div class="phone alt"><span class="bar"></span><span class="glyph">秋</span><div class="dots"><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="project-note" data-reveal>一个不打扰人的节气日历：一天只显示一个字、一句话。深浅两套配色跟着日出日落切换。【示例作品，内容为我按行业写的一版示意】</p>
+  </article>
+
+  <!-- 第二张氛围图 -->
+  <figure style="margin-top:clamp(80px,11vw,150px)" data-reveal>
+    <img class="atmos" src="assets/photos/photo-1455390582262-044cdead277a.jpg" alt="钢笔尖在横线纸上书写英文手稿的特写" loading="lazy" width="1200" height="800">
+    <figcaption class="atmos-cap"><span>纸与笔 / 手稿细节</span><span>氛围照片 · Unsplash</span></figcaption>
+  </figure>
+</section>
+
+<!-- 关于 -->
+<section class="wrap" id="about" aria-label="关于">
+  <div class="about-grid">
+    <div class="about-facts" data-reveal>
+      <p class="sec-label">关于 / ABOUT</p>
+      <div class="about-fact"><div class="k">现在</div><div class="v">独立设计师，接品牌与出版类的活</div></div>
+      <div class="about-fact"><div class="k">之前</div><div class="v">在两家设计工作室做过五年视觉</div></div>
+      <div class="about-fact"><div class="k">常在</div><div class="v">杭州，偶尔在海边</div></div>
+      <div class="about-fact"><div class="k">擅长</div><div class="v">把一堆信息排成一句能读懂的话</div></div>
+    </div>
+    <div class="about-copy" data-reveal>
+      <h2 class="sec-head" style="font-size:clamp(34px,3vw,52px)">一点自述</h2>
+      <p>我不太相信「风格」，更相信「合适」。每个项目该长成什么样，藏在它自己的内容里，我要做的是把它找出来，而不是套一个好看的模板。</p>
+      <p>合作方式很简单：先聊清楚要解决什么，再给两三个方向，定一个做完整。过程里我会把每一版都发给你看，不攒到最后才交。</p>
+      <p>页面里的三件作品是按设计行业写的一版示意，换成你真实的项目名、图片和介绍就能直接用。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 联系：反相收尾 -->
+<section class="contact wrap" id="contact" aria-label="联系">
+  <p class="invite" data-reveal>有项目想聊，或者只是想打个招呼，都欢迎写信。</p>
+  <a class="mail" href="mailto:hello@linyu.design?subject=%E6%9D%A5%E8%87%AA%E4%BD%9C%E5%93%81%E9%9B%86%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1" data-reveal>hello@linyu.design</a>
+  <p class="mail-sub" data-reveal>（这个邮箱是示例地址，换成你自己的就能收信）</p>
+</section>
+
+<footer class="footer wrap">
+  <div class="big-name" aria-hidden="true">林屿</div>
+  <div class="foot-bottom">
+    <span>© 2026 林屿 · 视觉设计</span>
+    <span>字体 Cabinet Grotesk · 氛围照片来自 Unsplash · 作品稿为代码绘制示意</span>
+    <a href="#top">回到顶部 ↑</a>
+  </div>
+</footer>
+
+<script>
+// 入场：只做一次，元素没脚本时也不隐藏（CSS 在 reduced-motion 下已兜底）
+(function(){
+  var els = document.querySelectorAll('[data-reveal]');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('shown');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('shown');io.unobserve(e.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el);});
+  // 兜底：1.2s 后把所有还没显示的都放出来，避免 any 情况内容不可见
+  setTimeout(function(){els.forEach(function(el){el.classList.add('shown');});},1200);
+})();
+</script>
+</body>
+</html>
